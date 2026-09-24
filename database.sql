@@ -26,3 +26,20 @@ CREATE TABLE chat_logs (
 
 -- Make yourself admin (run after registering your account)
 -- UPDATE users SET role = 'admin' WHERE email = 'mahbub.dm2023@gmail.com';
+
+-- Manual Payment Requests Table
+CREATE TABLE IF NOT EXISTS manual_payments (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  user_id UUID REFERENCES users(id) ON DELETE SET NULL,
+  plan TEXT NOT NULL,
+  amount INTEGER NOT NULL,
+  payment_method TEXT NOT NULL,
+  transaction_id TEXT NOT NULL,
+  sender_number TEXT NOT NULL,
+  status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'approved', 'rejected')),
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  approved_at TIMESTAMPTZ
+);
+
+CREATE INDEX IF NOT EXISTS idx_manual_payments_status ON manual_payments(status);
+CREATE INDEX IF NOT EXISTS idx_manual_payments_user_id ON manual_payments(user_id);
