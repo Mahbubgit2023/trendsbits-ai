@@ -16,7 +16,11 @@ export default function Home() {
     <main style={s.page}>
       <header style={s.header}>
         <a href="/" style={s.logo}>TrendsBits <span style={{ color: '#2563eb' }}>AI</span></a>
-        <a href="#plans" style={s.headerLink}>Plans</a>
+        <nav style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
+          <a href="#plans" style={s.headerLink}>Plans</a>
+          <a href="/dashboard" style={s.headerLink}>Dashboard</a>
+          <a href="/login" style={s.loginBtn}>Log in</a>
+        </nav>
       </header>
 
       <section style={s.hero}>
@@ -78,6 +82,7 @@ const s = {
   header: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: 1100, margin: '0 auto', padding: '20px 16px' },
   logo: { fontWeight: 800, fontSize: 22, color: '#0f172a', textDecoration: 'none' },
   headerLink: { color: '#0f172a', textDecoration: 'none', fontWeight: 600 },
+  loginBtn: { background: '#2563eb', color: '#fff', textDecoration: 'none', fontWeight: 600, padding: '8px 16px', borderRadius: 8 },
   hero: { textAlign: 'center', maxWidth: 760, margin: '0 auto', padding: '48px 16px 32px' },
   badge: { display: 'inline-block', background: '#e0ecff', color: '#1d4ed8', borderRadius: 999, padding: '6px 14px', fontSize: 14, fontWeight: 600, marginBottom: 20 },
   h1: { fontSize: 'clamp(30px, 6vw, 48px)', lineHeight: 1.15, fontWeight: 800, margin: '0 0 16px' },
