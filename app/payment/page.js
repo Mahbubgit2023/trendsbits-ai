@@ -3,10 +3,10 @@ import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 const PLANS = {
-  single_standard: { name: 'Single Standard', price: 700, devices: 1, tools: 'ChatGPT + Claude' },
-  single_all: { name: 'Single All Tools', price: 800, devices: 1, tools: 'ChatGPT + Claude + Gemini' },
-  dual_standard: { name: 'Dual Standard', price: 1000, devices: 2, tools: 'ChatGPT + Claude' },
-  dual_all: { name: 'Dual All Tools', price: 1100, devices: 2, tools: 'ChatGPT + Claude + Gemini' },
+  single_standard: { name: 'Single Standard', price: 700, devices: 1, tools: 'ChatGPT & Claude models' },
+  single_all: { name: 'Single All Tools', price: 800, devices: 1, tools: '100+ AI models' },
+  dual_standard: { name: 'Dual Standard', price: 1000, devices: 2, tools: 'ChatGPT & Claude models' },
+  dual_all: { name: 'Dual All Tools', price: 1100, devices: 2, tools: '100+ AI models' },
 };
 
 const PAYMENT_METHODS = [
