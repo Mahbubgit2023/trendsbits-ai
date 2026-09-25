@@ -1,8 +1,8 @@
 const PLANS = [
-  { id: 'single_standard', name: 'Single Standard', price: 700, devices: 1, tools: ['ChatGPT', 'Claude'] },
-  { id: 'single_all', name: 'Single All Tools', price: 800, devices: 1, tools: ['ChatGPT', 'Claude', 'Gemini'], popular: true },
-  { id: 'dual_standard', name: 'Dual Standard', price: 1000, devices: 2, tools: ['ChatGPT', 'Claude'] },
-  { id: 'dual_all', name: 'Dual All Tools', price: 1100, devices: 2, tools: ['ChatGPT', 'Claude', 'Gemini'] },
+  { id: 'single_standard', name: 'Single Standard', price: 700, devices: 1, tools: ['ChatGPT & Claude models', '600 credits / month'] },
+  { id: 'single_all', name: 'Single All Tools', price: 800, devices: 1, tools: ['100+ AI models: GPT, Claude, Gemini, Grok, DeepSeek & more', '600 credits / month'], popular: true },
+  { id: 'dual_standard', name: 'Dual Standard', price: 1000, devices: 2, tools: ['ChatGPT & Claude models', '1000 credits / month'] },
+  { id: 'dual_all', name: 'Dual All Tools', price: 1100, devices: 2, tools: ['100+ AI models: GPT, Claude, Gemini, Grok, DeepSeek & more', '1000 credits / month'] },
 ];
 
 const STEPS = [
@@ -24,17 +24,17 @@ export default function Home() {
       </header>
 
       <section style={s.hero}>
-        <div style={s.badge}>ChatGPT · Claude · Gemini</div>
+        <div style={s.badge}>ChatGPT · Claude · Gemini · Grok · DeepSeek · 100+ models</div>
         <h1 style={s.h1}>All top AI tools in one subscription</h1>
         <p style={s.lead}>
-          Use ChatGPT, Claude and Gemini from one place. Pay monthly in Taka with bKash, Nagad or Rocket.
+          Use ChatGPT, Claude, Gemini and 100+ other AI models from one place. Pay monthly in Taka with bKash, Nagad or Rocket.
         </p>
         <a href="#plans" style={s.cta}>See plans</a>
       </section>
 
       <section id="plans" style={s.section}>
         <h2 style={s.h2}>Plans</h2>
-        <p style={s.sub}>All plans are for 30 days.</p>
+        <p style={s.sub}>All plans are for 30 days. 1 credit = 1 message on a standard model; top models use 2–8 credits.</p>
         <div style={s.grid}>
           {PLANS.map((p) => (
             <div key={p.id} style={{ ...s.card, ...(p.popular ? s.cardPopular : {}) }}>
