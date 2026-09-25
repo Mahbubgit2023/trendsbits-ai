@@ -11,7 +11,7 @@ export async function POST(req) {
     if (authHeader?.startsWith('Bearer ')) {
       try {
         const decoded = verifyToken(authHeader.slice(7));
-        userId = decoded.userId;
+        userId = decoded?.id || decoded?.userId || null;
       } catch {}
     }
 
