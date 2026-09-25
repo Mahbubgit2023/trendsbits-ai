@@ -1,8 +1,8 @@
 const PLANS = [
-  { id: 'single_standard', name: 'Single Standard', price: 700, devices: 1, tools: ['ChatGPT & Claude models', '600 credits / month'] },
-  { id: 'single_all', name: 'Single All Tools', price: 800, devices: 1, tools: ['100+ AI models: GPT, Claude, Gemini, Grok, DeepSeek & more', '600 credits / month'], popular: true },
-  { id: 'dual_standard', name: 'Dual Standard', price: 1000, devices: 2, tools: ['ChatGPT & Claude models', '1000 credits / month'] },
-  { id: 'dual_all', name: 'Dual All Tools', price: 1100, devices: 2, tools: ['100+ AI models: GPT, Claude, Gemini, Grok, DeepSeek & more', '1000 credits / month'] },
+  { id: 'single_standard', name: 'Single Standard', price: 700, devices: 1, tools: ['11 GPT & Claude models', '600 credits / month'] },
+  { id: 'single_all', name: 'Single All Tools', price: 800, devices: 1, tools: ['30 top AI models: GPT, Claude, Gemini, Grok, DeepSeek & more', '600 credits / month'], popular: true },
+  { id: 'dual_standard', name: 'Dual Standard', price: 1000, devices: 2, tools: ['11 GPT & Claude models', '1000 credits / month'] },
+  { id: 'dual_all', name: 'Dual All Tools', price: 1100, devices: 2, tools: ['30 top AI models: GPT, Claude, Gemini, Grok, DeepSeek & more', '1000 credits / month'] },
 ];
 
 const STEPS = [
@@ -24,10 +24,10 @@ export default function Home() {
       </header>
 
       <section style={s.hero}>
-        <div style={s.badge}>ChatGPT · Claude · Gemini · Grok · DeepSeek · 100+ models</div>
+        <div style={s.badge}>ChatGPT · Claude · Gemini · Grok · DeepSeek · 30 top models</div>
         <h1 style={s.h1}>All top AI tools in one subscription</h1>
         <p style={s.lead}>
-          Use ChatGPT, Claude, Gemini and 100+ other AI models from one place. Pay monthly in Taka with bKash, Nagad or Rocket.
+          Use ChatGPT, Claude, Gemini, Grok, DeepSeek and more of the world's top AI models from one place. Pay monthly in Taka with bKash, Nagad or Rocket.
         </p>
         <a href="#plans" style={s.cta}>See plans</a>
       </section>
