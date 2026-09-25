@@ -7,7 +7,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_API_KEY);
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || process.env.GOOGLE_AI_API_KEY);
 
 export async function POST(req) {
   // Auth check
@@ -68,7 +68,7 @@ export async function POST(req) {
       reply = res.content[0].text;
 
     } else if (model === 'gemini') {
-      const geminiModel = genAI.getGenerativeModel({ model: 'gemini-pro' });
+      const geminiModel = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
       const history = messages.slice(0, -1).map(m => ({
         role: m.role === 'assistant' ? 'model' : 'user',
         parts: [{ text: m.content }],
