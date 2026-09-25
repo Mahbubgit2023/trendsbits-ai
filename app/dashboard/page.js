@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 
 const MODELS = [
   { id: 'chatgpt', label: 'ChatGPT', color: '#10A37F', dot: '🟢' },
-  { id: 'claude',  label: 'Claude',  color: '#CC785C', dot: '🟠', proOnly: true },
+  { id: 'claude',  label: 'Claude',  color: '#CC785C', dot: '🟠' },
   { id: 'gemini',  label: 'Gemini',  color: '#4285F4', dot: '🔵' },
 ];
 
@@ -21,9 +21,9 @@ export default function Dashboard() {
   useEffect(() => {
     const token = localStorage.getItem('tb_token');
     const u = localStorage.getItem('tb_user');
-    if (!token || !u) { router.push('/'); return; }
+    if (!token || !u) { router.push('/login'); return; }
     const parsed = JSON.parse(u);
-    if (!parsed.active) { router.push('/?inactive=1'); return; }
+    if (!parsed.active) { router.push('/#plans'); return; }
     setUser(parsed);
   }, []);
 
@@ -42,7 +42,7 @@ export default function Dashboard() {
     const token = localStorage.getItem('tb_token');
     const res = await fetch('/api/chat', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}`, 'x-device-id': localStorage.getItem('tb_device') || '' },
       body: JSON.stringify({ model, messages: next }),
     });
     const data = await res.json();
