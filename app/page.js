@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <main style={s.page}>
       <header style={s.header}>
-        <div style={s.logo}>TrendsBits <span style={{ color: '#2563eb' }}>AI</span></div>
+        <a href="/" style={s.logo}>TrendsBits <span style={{ color: '#2563eb' }}>AI</span></a>
         <a href="#plans" style={s.headerLink}>Plans</a>
       </header>
 
@@ -76,7 +76,7 @@ export default function Home() {
 const s = {
   page: { fontFamily: 'system-ui, -apple-system, Segoe UI, Roboto, sans-serif', background: '#f8fafc', color: '#0f172a', minHeight: '100vh' },
   header: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: 1100, margin: '0 auto', padding: '20px 16px' },
-  logo: { fontWeight: 800, fontSize: 22 },
+  logo: { fontWeight: 800, fontSize: 22, color: '#0f172a', textDecoration: 'none' },
   headerLink: { color: '#0f172a', textDecoration: 'none', fontWeight: 600 },
   hero: { textAlign: 'center', maxWidth: 760, margin: '0 auto', padding: '48px 16px 32px' },
   badge: { display: 'inline-block', background: '#e0ecff', color: '#1d4ed8', borderRadius: 999, padding: '6px 14px', fontSize: 14, fontWeight: 600, marginBottom: 20 },
