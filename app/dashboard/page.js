@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 
-const PROVIDER_ORDER = ['OpenAI', 'Anthropic', 'Google', 'xAI', 'DeepSeek', 'Meta', 'Mistral', 'Qwen'];
+const PROVIDER_ORDER = ['OpenAI', 'Anthropic', 'Google', 'xAI', 'DeepSeek', 'Meta', 'Qwen', 'Mistral', 'Moonshot', 'Zhipu', 'Perplexity', 'MiniMax'];
 
 export default function Dashboard() {
   const router = useRouter();
@@ -185,7 +185,7 @@ export default function Dashboard() {
                   {list.map(m => (
                     <button key={m.id} onClick={() => choose(m)}
                       style={{ ...s.modelRow, ...(m.id === modelId ? s.modelRowActive : {}), ...(m.allowed ? {} : s.modelRowLocked) }}>
-                      <span style={{ flex: 1, textAlign: 'left' }}>{m.name}</span>
+                      <span style={{ flex: 1, textAlign: 'left' }}>{m.name}{m.tag && <span style={s.tag}>{m.tag}</span>}</span>
                       {m.allowed
                         ? <span style={s.cost}>{m.credits} cr</span>
                         : <span style={s.lock}>🔒 All Tools plan</span>}
@@ -250,4 +250,5 @@ const s = {
   modelRowActive: { background: 'rgba(16,163,127,0.15)' },
   modelRowLocked: { opacity: 0.5, cursor: 'not-allowed' },
   lock: { fontSize: 11, color: '#FB923C', whiteSpace: 'nowrap' },
+  tag: { display: 'block', fontSize: 12, color: '#8A8A9A', marginTop: 2 },
 };
