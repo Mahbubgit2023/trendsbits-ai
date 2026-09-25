@@ -1,5 +1,5 @@
 'use client';
-import { useState, Suspense } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 const PLANS = {
@@ -28,6 +28,10 @@ function PaymentForm() {
   const [success, setSuccess] = useState(false);
   const method = PAYMENT_METHODS.find(m => m.id === selectedMethod);
 
+useEffect(() => {
+if (!localStorage.getItem('tb_token')) router.replace('/login?next=' + encodeURIComponent('/payment?plan=' + planId));
+}, []);
+
   async function handleSubmit(e) {
     e.preventDefault();
     setError('');
@@ -37,7 +41,7 @@ function PaymentForm() {
     try {
       const res = await fetch('/api/payment/manual', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + (localStorage.getItem('tb_token') || '') },
         body: JSON.stringify({ plan: planId, amount: plan.price, paymentMethod: selectedMethod, transactionId: txnId.trim(), senderNumber: senderNumber.trim() }),
       });
       const data = await res.json();
@@ -54,7 +58,7 @@ function PaymentForm() {
     <div style={styles.container}><div style={styles.card}>
       <div style={{ fontSize: 64, textAlign: 'center' }}>OK</div>
       <h2 style={{ textAlign: 'center', color: '#16a34a' }}>Payment Submitted!</h2>
-      <p style={{ textAlign: 'center', color: '#555' }}>Your payment is under review. Account activated within <strong>1-2 hours</strong>.</p>
+      <p style={{ textAlign: 'center', color: '#555' }}>Your payment is under review. Account activated within <strong>1-2 hours</strong>. After activation, log in again to open your dashboard.</p>
       <button onClick={() => router.push('/')} style={styles.btnPrimary}>Go to Home</button>
     </div></div>
   );
